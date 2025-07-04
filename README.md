@@ -42,7 +42,7 @@ I have included colors for folder prefixes 00 - 15 and then from 93 - 99 if you 
 
 ## How to Use
 
-1.  **Download the snippets:** You can clone this repository or download individual `.css` files.
+1.  **Download the snippets:** You can clone this repository, download the release or download individual `.css` files.
 2.  **Place in Obsidian:** Copy the `.css` files into your Obsidian vault's `.obsidian/snippets/` folder. If this folder doesn't exist, create it.
 3.  **Enable in Obsidian:** Open Obsidian, go to `Settings` -> `Appearance` -> `CSS snippets`, and toggle on the snippets you wish to use.
 
