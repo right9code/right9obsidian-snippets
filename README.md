@@ -13,7 +13,8 @@ A collection of custom CSS snippets for Obsidian, designed to enhance your note-
 ![01 - sleek-css.jpg](images/01%20-%20sleek-css.jpg)
 
 - **02 - sidebar-folder-colors.css**:
-==IMPORTANT!! MAKE SURE YOUR FOLDER NAME STARTS WITH PROPER PREFIX i.e. 01,02 and so on==
+**IMPORTANT!!** MAKE SURE YOUR FOLDER NAME STARTS WITH PROPER PREFIX i.e. 01,02 and so on==
+
 I have included colors for folder prefixes 00 - 15 and then from 93 - 99 if you want to add more feel free to edit with any AI or change values with vs code.
 
 ![02 - sidebar-folder-colors.png](images/02%20-%20sidebar-folder-colors.png)
