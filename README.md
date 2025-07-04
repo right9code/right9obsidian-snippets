@@ -6,36 +6,36 @@ A collection of custom CSS snippets for Obsidian, designed to enhance your note-
 
 - **00 - zen.css**: This snippet will only allow UI elements to appear on hover, that is when you put cursor on them.
 
-![00 - zen-css.jpg](images/00 - zen-css.jpg)
+![00 - zen-css.jpg](images/00%20-%20zen-css.jpg)
 
 - **01 - sleek.css**: It standardizes all background colors for a sleek, unibody design.
 
-![01 - sleek-css.jpg](images/01 - sleek-css.jpg)
+![01 - sleek-css.jpg](images/01%20-%20sleek-css.jpg)
 
 - **02 - sidebar-folder-colors.css**:
 ==IMPORTANT!! MAKE SURE YOUR FOLDER NAME STARTS WITH PROPER PREFIX i.e. 01,02 and so on==
 I have included colors for folder prefixes 00 - 15 and then from 93 - 99 if you want to add more feel free to edit with any AI or change values with vs code.
 
-![02 - sidebar-folder-colors.png](images/02 - sidebar-folder-colors.png)
+![02 - sidebar-folder-colors.png](images/02%20-%20sidebar-folder-colors.png)
 
 - **03 - fat-sidebar-folders.css**: It's sidebar-folder-colors with a box around folders.
 
-![03 - fat-sidebar-folders.jpg](images/03 - fat-sidebar-folders.jpg)
+![03 - fat-sidebar-folders.jpg](images/03%20-%20fat-sidebar-folders.jpg)
 
 - **04 - custom-heading-colors.css**: This changes the heading colors.
 
-![04 - custom-heading-colors.png](images/04 - custom-heading-colors.png)
+![04 - custom-heading-colors.png](images/04%20-%20custom-heading-colors.png)
 
 - **05 - fatheading.css**: It creates a box around your headings
 
-![05 - fatheading-css.jpg](images/05 - fatheading-css.jpg)
+![05 - fatheading-css.jpg](images/05%20-%20fatheading-css.jpg)
 
 - **06 - text-formatting.css**: This basically changes these styles:
 **BOLD** *Italic* ==Highlight== and ~~Strikethrough~~
 
 - **07 - hover-properties.css**: It makes the note-taking experience cleaner by only showing properties when you hover over them rest of the time they remain collapsed.
 
-![07 - hover-properties.png](images/07 - hover-properties.png)
+![07 - hover-properties.png](images/07%20-%20hover-properties.png)
 
 ---
 
