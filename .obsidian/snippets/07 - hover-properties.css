@@ -1,0 +1,26 @@
+
+/* Hide Properties and show on Hover */
+.markdown-preview-view, .markdown-source-view { /* Both edit and preview mode */
+    .metadata-container {             
+        max-height: 2.7rem;             
+        opacity: 0.6;             
+        overflow: hidden;             
+        transition: max-height 250ms ease-in-out, opacity 250ms;
+        margin-bottom: 0;         
+    }
+    .metadata-container:hover,
+    .metadata-container:focus-within {
+         max-height: 1000px;
+         opacity: 1;
+         transition: max-height 300ms ease-in-out, opacity 300ms;         
+    }
+}
+  
+/* Disable hover effect for tables in Minimal theme */
+.markdown-preview-view table td:hover,
+.markdown-preview-view table th:hover {
+    background-color: inherit !important; /* Keep the original background */
+    color: inherit !important; /* Keep the original text color */
+}
+
+/* --------------------------------------------   */

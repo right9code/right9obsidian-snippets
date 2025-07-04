@@ -1,0 +1,131 @@
+/* --- Boxed Headings Effect (Structure + Collapse Icon - Use with your own text color snippet) --- */
+
+:root {
+  --my-heading-box-bg: rgba(23, 25, 29, 0.6);
+  --my-heading-box-border-color: rgba(60, 63, 70, 0.7);
+  --my-lp-indicator-color: #7A808C;
+  --my-heading-markdown-token-color: #6A707C;
+  --my-heading-radius: 4px;
+  --my-heading-border-width: 1px;
+  --my-heading-letter-spacing: 1px;
+
+  /* Added for collapse icon styling - from Shimmering Focus defaults */
+  --my-icon-color-hover: #ED5AA8; /* Example hover color from SF dark */
+  --my-text-faint: #7A808C; /* Example faint color for collapsed state */
+}
+
+/* Base heading styles */
+.markdown-source-view .cm-header:not(.cm-formatting-header),
+.markdown-preview-view :is(h1,h2,h3,h4,h5,h6) {
+  font-weight: 700;
+  letter-spacing: var(--my-heading-letter-spacing);
+  line-height: 1.4; /* Increased from 1.0 for better vertical spacing */
+}
+
+/* Box for Reading View */
+.markdown-preview-view :is(h1,h2,h3,h4,h5,h6) {
+  background-color: var(--my-heading-box-bg);
+  border: var(--my-heading-border-width) solid var(--my-heading-box-border-color);
+  border-radius: var(--my-heading-radius);
+  padding-top: 0.2em; /* Adjusted padding for better vertical centering */
+  padding-bottom: 0.2em; /* Adjusted padding for better vertical centering */
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-top: 0.8em;
+  margin-bottom: 0.4em;
+  position: relative; /* For positioning collapse icon if needed in reading view */
+}
+
+/* Box for Live Preview */
+.markdown-source-view .cm-line.HyperMD-header {
+  background-color: var(--my-heading-box-bg);
+  border: var(--my-heading-border-width) solid var(--my-heading-box-border-color);
+  border-radius: var(--my-heading-radius);
+  padding-top: 0.2em; /* Adjusted padding for better vertical centering */
+  padding-bottom: 0.2em; /* Adjusted padding for better vertical centering */
+  /* Ensure padding-left accommodates the collapse icon AND Hx indicator */
+  /* The collapse icon itself often has its own margin/positioning */
+  padding-left: 6px; /* Start with this, may need adjustment */
+  padding-right: 8px;
+  margin-top: 0.8em;
+  margin-bottom: 0.4em;
+  position: relative; /* Important for positioning the collapse icon inside */
+}
+
+/* --- Collapse Icon Styling (Inspired by Shimmering Focus) --- */
+/* General styling for the SVG inside the collapse icon */
+.collapse-icon > .svg-icon {
+  stroke-width: 3px !important; /* Make the arrow thicker, SF uses 4px */
+  width: 0.8em !important;     /* Adjust size */
+  height: 0.8em !important;    /* Adjust size */
+  vertical-align: middle;  /* Helps with alignment */
+  margin-right: 0.3em;       /* Space after the icon, before Hx indicator */
+  cursor: pointer;          /* Make it clear it's clickable */
+}
+
+.collapse-icon > .svg-icon:hover {
+  stroke: var(--my-icon-color-hover) !important;
+}
+
+/* If the heading is collapsed, or on a non-active line, the icon might be fainter */
+.is-live-preview .cm-line:not(.cm-active) .collapse-icon > .svg-icon,
+.markdown-preview-view .collapse-icon > .svg-icon, /* General for reading view */
+.markdown-preview-view .is-collapsed .collapse-icon > .svg-icon, /* Explicitly for collapsed in RV */
+.is-live-preview .HyperMD-header-line.is-collapsed .collapse-icon > .svg-icon /* Explicitly for collapsed in LP */
+{
+  color: var(--my-text-faint); /* Using a variable for faint color */
+  stroke: var(--my-text-faint); /* Ensure stroke also uses this color */
+}
+
+/* Position the collapse icon in Live Preview.
+   Obsidian often handles its base position, but we can fine-tune.
+   This attempts to place it nicely before other content within the padded box. */
+.is-live-preview .markdown-source-view .cm-line.HyperMD-header .collapse-icon {
+    display: inline-flex; /* Helps with vertical alignment of SVG */
+    align-items: center;
+    /* vertical-align: baseline; /* This was causing issues, try flex alignment */
+    /* Adjustments if Obsidian's default positioning isn't quite right with the box */
+    /* Shimmering Focus often uses negative margins or absolute positioning,
+       but let's start simpler and see how it behaves with the increased box padding.
+       If it's still off, we might need more specific positioning here. */
+}
+
+
+/* Markdown tokens like #, ## in Live Preview */
+.markdown-source-view .cm-formatting-header {
+  color: var(--my-heading-markdown-token-color) !important;
+  font-weight: 700;
+  letter-spacing: var(--my-heading-letter-spacing);
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 0.2em 0 0 !important;
+  margin: 0 !important;
+  vertical-align: baseline;
+}
+
+/* Live Preview "H1", "H2" indicators */
+.is-live-preview .markdown-source-view .cm-header:not(.cm-formatting-header):before {
+  content: "";
+  display: inline-block;
+/*  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace,'JetBrainsMonoNL Nerd Font';*/
+  color: var(--my-lp-indicator-color);
+  font-size: 0.8rem;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1em; /* Keep indicator line height tight */
+  padding-right: 0.6em;
+  vertical-align: baseline; /* This is generally good for text-like elements */
+  position: relative;
+}
+
+/* Content for LP Indicators */
+.is-live-preview .markdown-source-view .cm-line:not(.cm-active) > .cm-header-1:not(.cm-formatting-header):before { content: "H1"; }
+.is-live-preview .markdown-source-view .cm-line:not(.cm-active) > .cm-header-2:not(.cm-formatting-header):before { content: "H2"; }
+.is-live-preview .markdown-source-view .cm-line:not(.cm-active) > .cm-header-3:not(.cm-formatting-header):before { content: "H3"; }
+.is-live-preview .markdown-source-view .cm-line:not(.cm-active) > .cm-header-4:not(.cm-formatting-header):before { content: "H4"; }
+.is-live-preview .markdown-source-view .cm-line:not(.cm-active) > .cm-header-5:not(.cm-formatting-header):before { content: "H5"; }
+.is-live-preview .markdown-source-view .cm-line:not(.cm-active) > .cm-header-6:not(.cm-formatting-header):before { content: "H6"; }
+
+.markdown-source-view .cm-header:not(.cm-formatting-header) {
+    text-indent: 0;
+}

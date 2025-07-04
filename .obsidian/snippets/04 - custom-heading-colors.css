@@ -1,0 +1,51 @@
+/* Custom Heading Colors - Subtle Muted Contrast */
+
+/* For Reading View */
+.markdown-preview-view h1 {
+    color: rgba(122, 165, 194, 0.9) !important; /* Dusty Blue */
+}
+
+.markdown-preview-view h2 {
+    color: rgba(143, 184, 159, 0.9) !important; /* Muted Sage Green */
+}
+
+.markdown-preview-view h3 {
+    color: rgba(212, 160, 99, 0.9) !important; /* Soft Ochre/Amber */
+}
+
+.markdown-preview-view h4 {
+    color: rgba(164, 140, 191, 0.9) !important; /* Gentle Lavender */
+}
+
+.markdown-preview-view h5 {
+    color: rgba(196, 132, 160, 0.9) !important; /* Rose Dust */
+}
+
+.markdown-preview-view h6 {
+    color: rgba(136, 199, 197, 0.9) !important; /* Subtle Teal */
+}
+
+/* For Live Preview and Source Mode */
+.cm-header-1 {
+    color: rgba(122, 165, 194, 0.9) !important; /* Dusty Blue */
+}
+
+.cm-header-2 {
+    color: rgba(143, 184, 159, 0.9) !important; /* Muted Sage Green */
+}
+
+.cm-header-3 {
+    color: rgba(212, 160, 99, 0.9) !important; /* Soft Ochre/Amber */
+}
+
+.cm-header-4 {
+    color: rgba(164, 140, 191, 0.9) !important; /* Gentle Lavender */
+}
+
+.cm-header-5 {
+    color: rgba(196, 132, 160, 0.9) !important; /* Rose Dust */
+}
+
+.cm-header-6 {
+    color: rgba(136, 199, 197, 0.9) !important; /* Subtle Teal */
+}

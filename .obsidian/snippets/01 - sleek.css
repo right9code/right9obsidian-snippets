@@ -1,0 +1,21 @@
+/* GitHub Theme Background Snippet */
+
+/* GitHub Theme Background Snippet for Main and Sidebars */
+
+body.theme-dark {
+  /* Main content background with 90% opacity (adjust 0.9 as needed) */
+  --background-primary: rgba(13, 17, 23, 0.7) !important;
+
+  /* Sidebar backgrounds (and other secondary/alternative primary areas) to match main */
+  --background-secondary: rgba(13, 17, 23, 0.9) !important;
+  --background-primary-alt: rgba(13, 17, 23, 0.9) !important;
+}
+
+body.theme-light {
+  --background-primary: #ffffff !important;
+
+  /* GitHub light secondary/alt background for sidebars */
+  /* If you want sidebars to be IDENTICAL white to main in light mode, use #ffffff for these too */
+  --background-secondary: #f6f8fa !important;
+  --background-primary-alt: #f6f8fa !important;
+}

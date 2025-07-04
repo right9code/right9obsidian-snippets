@@ -1,0 +1,72 @@
+/* Custom Text Styles: Italic and Bold Colors */
+
+/* Italic text color */
+.markdown-preview-view em,
+.markdown-preview-view strong em, /* Covers bold italic where italic style is applied first */
+.cm-em {
+    color: #9ACD95 !important; /* Muted Green */
+    font-style: italic !important; /* Explicitly ensure italic style */
+}
+
+/* Bold text color AND WEIGHT */
+.markdown-preview-view strong,
+.markdown-preview-view em strong, /* Covers italic bold where bold style is applied first */
+.cm-strong {
+    color: #DE819C !important; /* Dusty Rose/Mauve */
+    font-weight: 700 !important; /* Or 'bold'. 700 is a common value for bold. */
+                                  /* You can try 600 for semi-bold or 800 for extra-bold if your font supports it */
+}
+
+/* Styling for text that is BOTH bold AND italic */
+.markdown-preview-view strong em, /* When em is inside strong */
+.markdown-preview-view em strong, /* When strong is inside em */
+.cm-em.cm-strong, /* CodeMirror: element has both classes */
+.cm-strong.cm-em { /* CodeMirror: element has both classes */
+    color: #DE819C !important; /* Your chosen color for bold-italic */
+    font-weight: 700 !important; /* Ensure it's bold */
+    font-style: italic !important; /* Ensure it's italic */
+}
+
+
+/* --- Strikethrough --- */
+/* Your preferred color: #A17087 */
+
+/* For Reading View */
+.markdown-preview-view s,
+.markdown-preview-view del {
+    color: #A17087 !important;
+    text-decoration-color: #A17087 !important;
+    text-decoration-thickness: 0.12em !important;
+    opacity: 0.75 !important;
+}
+
+/* For Live Preview / Source Mode (CodeMirror) */
+.cm-strikethrough {
+    color: #c1799a !important;
+    text-decoration-color: #A17087 !important;
+    text-decoration-thickness: 0.12em !important;
+    opacity: 0.75 !important;
+}
+
+/* Optional: Styling for the markdown tildes (~~) themselves in Live Preview */
+.cm-formatting-strikethrough.cm-strikethrough {
+    color: #8A6075 !important;
+    text-decoration: none !important;
+    opacity: 0.8 !important;
+}
+
+
+/* --- Highlight (Muted Pastel Green) --- */
+.markdown-preview-view mark,
+.cm-s-obsidian span.cm-highlight {
+    background-color: rgba(160, 190, 170, 0.45) !important;
+    color: inherit !important;
+    padding: 0.05em 0.2em !important;
+    border-radius: 3px !important;
+}
+
+/* Optional: Styling for the markdown equals signs (==) themselves in Live Preview */
+.cm-formatting-highlight.cm-highlight {
+    color: rgba(130, 160, 140, 0.7) !important;
+    background-color: transparent !important;
+}
