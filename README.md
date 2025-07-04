@@ -2,6 +2,8 @@
 
 A collection of custom CSS snippets for Obsidian, designed to enhance your note-taking experience.
 
+![Showcase Video of Obsidian CSS Snippets](images/showcase-video.gif)
+
 ---
 
 - **00 - zen.css**: This snippet will only allow UI elements to appear on hover, that is when you put cursor on them.
