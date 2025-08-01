@@ -132,3 +132,25 @@ textarea:hover::-webkit-scrollbar-thumb
 {
   opacity: 1 !important; /* Ensure content visibility */
 }
+
+
+/* --- Hide elements initially --- */
+.workspace-sidedock-vault-profile,        /* Vault Section */
+.workspace-leaf-resize-handle,            /* Margin Line between Left Pane and Body */
+.titlebar-button.mod-minimize,            /* Minimize Button */
+.titlebar-button.mod-maximize,            /* Maximise Button */
+.titlebar-button.mod-close                /* Close Button */ {
+  opacity: 0;
+  transition: opacity var(--zen-transition-duration) var(--zen-transition-timing);
+}
+
+/* --- Reveal elements on hover --- */
+.workspace-sidedock-vault-profile:hover,
+.workspace-leaf-resize-handle:hover,
+.titlebar-button.mod-minimize:hover,
+.titlebar-button.mod-maximize:hover,
+.titlebar-button.mod-close:hover {
+  opacity: 1;
+}
+
+
