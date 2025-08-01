@@ -153,4 +153,9 @@ textarea:hover::-webkit-scrollbar-thumb
   opacity: 1;
 }
 
+/* --- Uncomment below to hide minimize, maximize, and close buttons on the titlebar --- */
+/* .titlebar-button-container {
+  display: none !important;
+} */
+
 
