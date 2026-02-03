@@ -21,7 +21,7 @@ A collection of custom CSS snippets for Obsidian, designed to enhance your note-
 ---
 
 ## 00 - Sleek Zen
-![00 - Sleek Zen](gifs/00%20-%20sleek-zen.gif|)
+![00 - Sleek Zen](gifs/00%20-%20sleek-zen.gif)
 **File:** `00 - sleek-zen.css`  
 
 ### Description
