@@ -184,7 +184,7 @@ Completely hides all scrollbars across the entire app (always invisible).
 ---
 
 ## 10 - Solid Black Background
-![10 - Solid Black Background](gifs/10%20-%20solid-black-bg.gif|)
+![10 - Solid Black Background](gifs/10%20-%20solid-black-bg.gif)
 **File:** `10 - solid-black-bg.css`  
 
 ### Description
