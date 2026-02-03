@@ -1,0 +1,36 @@
+/* ==========================================================================
+   10 - HIDE SCROLLBARS (Always Invisible)
+   ========================================================================== */
+
+/* Completely hide all scrollbars across the entire app */
+/* This relies on Webkit pseudo-elements used by Obsidian (Electron) */
+
+::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    background-color: transparent !important;
+}
+
+::-webkit-scrollbar-track {
+    display: none !important;
+    background-color: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+    display: none !important;
+    background-color: transparent !important;
+}
+
+::-webkit-scrollbar-corner {
+    display: none !important;
+    background-color: transparent !important;
+}
+
+/* Force override for body variables often used by themes */
+body {
+    --scrollbar-width: 0px !important;
+    --scrollbar-bg: transparent !important;
+    --scrollbar-thumb-bg: transparent !important;
+    --scrollbar-active-thumb-bg: transparent !important;
+}

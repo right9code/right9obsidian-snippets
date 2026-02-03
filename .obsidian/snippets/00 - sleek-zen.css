@@ -1,0 +1,325 @@
+/* ==========================================================================
+   ULTIMATE SLEEK ZEN MODE - OBSIDIAN
+   "The cleanest workspace possible. Everything is there, nothing is visible."
+   ========================================================================== */
+
+/* --- GLOBAL ANIMATION SETTINGS --- */
+body {
+    --zen-speed: 0.3s;
+    --zen-ease: cubic-bezier(0.4, 0, 0.2, 1);
+    --trigger-width: 12px;
+    /* Width of invisible sidebar triggers */
+    --trigger-height: 6px;
+    /* Height of invisible top/bottom triggers */
+    --ribbon-width: 50px;
+    /* Standard ribbon width */
+}
+
+/* ==========================================================================
+   1. TOP TAB BAR (Main Editor Tabs)
+   ========================================================================== */
+.mod-root .workspace-tab-header-container {
+    /* Dimensions - Collapsed Trigger */
+    height: var(--trigger-height) !important;
+    min-height: var(--trigger-height) !important;
+    max-height: var(--trigger-height) !important;
+
+    /* Visibility - Invisible Trigger */
+    overflow: hidden !important;
+    opacity: 0;
+    background-color: transparent !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+    z-index: 20;
+
+    /* Animation */
+    transition: all var(--zen-speed) var(--zen-ease) !important;
+}
+
+/* EXPAND: Hover Main Header OR Hover Sidebars */
+.mod-root .workspace-tab-header-container:hover,
+body:has(.workspace-split.mod-left-split:hover) .mod-root .workspace-tab-header-container,
+body:has(.workspace-split.mod-right-split:hover) .mod-root .workspace-tab-header-container {
+    height: 40px !important;
+    min-height: 40px !important;
+    max-height: 40px !important;
+
+    opacity: 1;
+    background-color: var(--background-primary) !important;
+}
+
+/* Content Visibility Logic */
+.mod-root .workspace-tab-header-container .workspace-tab-header-inner,
+.mod-root .workspace-tab-header-container .sidebar-toggle-button {
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* Ensure buttons are visible on hover or sidebar hover */
+.mod-root .workspace-tab-header-container:hover .sidebar-toggle-button,
+body:has(.workspace-split.mod-left-split:hover) .mod-root .workspace-tab-header-container .sidebar-toggle-button,
+body:has(.workspace-split.mod-right-split:hover) .mod-root .workspace-tab-header-container .sidebar-toggle-button {
+    opacity: 1;
+    pointer-events: auto;
+    display: flex !important;
+}
+
+/* Hide content if NOT triggered */
+.mod-root .workspace-tab-header-container:not(:hover) .workspace-tab-header-inner,
+body:not(:has(.workspace-split.mod-left-split:hover)):not(:has(.workspace-split.mod-right-split:hover)) .mod-root .workspace-tab-header-container:not(:hover) .workspace-tab-header-inner,
+body:not(:has(.workspace-split.mod-left-split:hover)):not(:has(.workspace-split.mod-right-split:hover)) .mod-root .workspace-tab-header-container:not(:hover) .sidebar-toggle-button {
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+/* ==========================================================================
+   2. LEFT SIDEBAR (File Explorer)
+   ========================================================================== */
+.workspace-split.mod-left-split {
+    transition: max-width var(--zen-speed) var(--zen-ease),
+        min-width var(--zen-speed) var(--zen-ease),
+        width var(--zen-speed) var(--zen-ease) !important;
+}
+
+/* Collapsed State - Invisible Trigger */
+.workspace-split.mod-left-split:not(:hover) {
+    max-width: var(--trigger-width) !important;
+    min-width: var(--trigger-width) !important;
+    width: var(--trigger-width) !important;
+
+    opacity: 0;
+    background-color: transparent;
+    border-right: none;
+}
+
+/* Expanded State */
+.workspace-split.mod-left-split:hover {
+    max-width: 350px !important;
+    /* Adjust default width */
+    opacity: 1;
+}
+
+/* Content Hiding */
+.workspace-split.mod-left-split:not(:hover) .workspace-tabs,
+.workspace-split.mod-left-split:not(:hover) .workspace-leaf-content {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.workspace-split.mod-left-split:hover .workspace-tabs,
+.workspace-split.mod-left-split:hover .workspace-leaf-content {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease-in-out 0.1s;
+}
+
+
+/* ==========================================================================
+   3. RIGHT SIDEBAR (Backlinks, Tags)
+   ========================================================================== */
+.workspace-split.mod-right-split {
+    transition: max-width var(--zen-speed) var(--zen-ease),
+        min-width var(--zen-speed) var(--zen-ease),
+        width var(--zen-speed) var(--zen-ease) !important;
+}
+
+/* Collapsed State - Invisible Trigger */
+.workspace-split.mod-right-split:not(:hover) {
+    max-width: var(--trigger-width) !important;
+    min-width: var(--trigger-width) !important;
+    width: var(--trigger-width) !important;
+
+    opacity: 0;
+    background-color: transparent;
+    border-left: none;
+}
+
+/* Expanded State */
+.workspace-split.mod-right-split:hover {
+    max-width: 350px !important;
+    opacity: 1;
+}
+
+/* Content Hiding */
+.workspace-split.mod-right-split:not(:hover) .workspace-tabs,
+.workspace-split.mod-right-split:not(:hover) .workspace-leaf-content {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.workspace-split.mod-right-split:hover .workspace-tabs,
+.workspace-split.mod-right-split:hover .workspace-leaf-content {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease-in-out 0.1s;
+}
+
+
+/* ==========================================================================
+   4. RIBBON (Far Left Action Icons)
+   ========================================================================== */
+.workspace-ribbon {
+    /* Static Layout - Opacity Only */
+    transition: opacity var(--zen-speed) var(--zen-ease) !important;
+}
+
+/* Collapsed - Impossible to see but space reserved */
+.workspace-ribbon:not(:hover) {
+    opacity: 0;
+}
+
+/* Expanded */
+.workspace-ribbon:hover {
+    opacity: 1;
+}
+
+/* Ensure icons fade properly */
+.workspace-ribbon:not(:hover) .side-dock-actions {
+    display: flex !important;
+}
+
+
+/* ==========================================================================
+   5. STATUS BAR (Bottom Info)
+   ========================================================================== */
+.status-bar {
+    /* Hard Lock Layout */
+    height: 30px !important;
+    min-height: 30px !important;
+    max-height: 30px !important;
+    padding: 0 10px !important;
+    margin: 0 !important;
+    z-index: 10;
+
+    transform: none !important;
+    transition: opacity 0.2s ease-in-out !important;
+}
+
+/* Invisible unless hovered */
+.status-bar:not(:hover) {
+    opacity: 0;
+}
+
+.status-bar:hover {
+    opacity: 1;
+}
+
+
+/* ==========================================================================
+   6. INTERNAL CONTROLS (Sidebar Buttons & Headers)
+   ========================================================================== */
+/* Left Sidebar Action Buttons (New Folder/File) */
+.nav-buttons-container {
+    transition: all var(--zen-speed) var(--zen-ease) !important;
+    overflow: hidden !important;
+}
+
+.nav-buttons-container:not(:hover) {
+    height: 2px !important;
+    min-height: 2px !important;
+    max-height: 2px !important;
+    opacity: 0.2;
+    margin-bottom: 0 !important;
+}
+
+.nav-buttons-container:hover,
+.nav-header:hover .nav-buttons-container {
+    height: 40px !important;
+    min-height: 40px !important;
+    max-height: 40px !important;
+    opacity: 1;
+}
+
+/* Right Sidebar View Headers */
+.mod-right-split .view-header {
+    transition: all var(--zen-speed) var(--zen-ease) !important;
+    overflow: hidden !important;
+}
+
+.mod-right-split .view-header:not(:hover) {
+    height: 2px !important;
+    min-height: 2px !important;
+    max-height: 2px !important;
+    opacity: 0.2;
+}
+
+.mod-right-split .view-header:hover,
+.mod-right-split .workspace-leaf:hover .view-header {
+    height: 40px !important;
+    min-height: 40px !important;
+    max-height: 40px !important;
+    opacity: 1;
+}
+
+
+/* ==========================================================================
+   7. TITLE BAR (Window Controls)
+   ========================================================================== */
+/* Static layout, fade visibility only */
+.titlebar {
+    /* Ensure it stays fully static */
+    z-index: 50;
+    /* Topmost */
+    transform: none !important;
+    transition: opacity 0.2s ease-in-out !important;
+}
+
+/* Invisible unless hovered */
+.titlebar:not(:hover) {
+    opacity: 0;
+}
+
+/* Hover State */
+.titlebar:hover {
+    opacity: 1;
+    /* Optional: Add background if it was transparent */
+    background-color: var(--background-secondary) !important;
+}
+
+/* Ensure the window buttons (close/min/max) don't capture mouse when invisible */
+/* Wait, we WANT them to capture mouse so you can hover them effectively ?? */
+/* Actually, if opacity is 0, you usually want to hover the AREA to reveal it. */
+.titlebar:not(:hover) .titlebar-button-container {
+    opacity: 0;
+}
+
+.titlebar:hover .titlebar-button-container {
+    opacity: 1;
+}
+
+
+/* ==========================================================================
+   8. VIEW HEADER (Note Title & Action Icons)
+   ========================================================================== */
+/* The bar directly above the editor with filename */
+
+.view-header {
+    /* Static layout - no jumping */
+    transition: opacity 0.3s ease-in-out !important;
+    z-index: 5;
+}
+
+/* Invisible unless hovered */
+.view-header:not(:hover) {
+    opacity: 0;
+    /* Optional: If you want to see the filename very faintly, use 0.1 */
+}
+
+/* Visible on hover */
+.view-header:hover {
+    opacity: 1;
+    background-color: var(--background-primary) !important;
+}
+
+/* Also show if hovering the top area of the leaf */
+.workspace-leaf-content[data-type="markdown"]:hover .view-header {
+    /* Optional: If you want it to show while typing, remove this. 
+      If you want it to ONLY show when hovering the header itself, keep previous rule. 
+      Usually, you want it to stay hidden while writing. */
+}
+
+
+/* End of Ultimate Zen Mode */

@@ -1,0 +1,82 @@
+/* ==========================================================================
+   PURE BLACK BACKGROUNDS - HYPRLAND COMPOSITOR TAKEOVER
+   "Let the compositor handle all transparency"
+   ========================================================================== */
+
+/* Force everything to pure black #000000 */
+body {
+    --background-primary: #000000 !important;
+    --background-secondary: #000000 !important;
+    --background-secondary-alt: #000000 !important;
+    --background-modifier-border: #000000 !important;
+    --background-modifier-form-field: #000000 !important;
+    background-color: #000000 !important;
+}
+
+.app-container {
+    background-color: #000000 !important;
+}
+
+.workspace-split,
+.workspace-leaf,
+.workspace-leaf-content,
+.view-content,
+.view-header,
+.workspace-tab-header-container,
+.workspace-ribbon,
+.status-bar,
+.titlebar {
+    background-color: #000000 !important;
+}
+
+/* Sidebars */
+.workspace-split.mod-left-split,
+.workspace-split.mod-right-split {
+    background-color: #000000 !important;
+}
+
+/* Editor areas */
+.markdown-source-view,
+.markdown-preview-view,
+.cm-scroller {
+    background-color: #000000 !important;
+}
+
+/* Modals and popovers */
+.modal,
+.popover,
+.menu {
+    background-color: #000000 !important;
+}
+
+/* Tab headers */
+.workspace-tab-header,
+.workspace-tab-header-container {
+    background-color: #000000 !important;
+}
+
+/* File explorer */
+.nav-folder,
+.nav-file {
+    background-color: transparent !important;
+}
+
+/* Settings and other panels */
+.vertical-tab-header,
+.vertical-tab-content,
+.horizontal-tab-nav-item {
+    background-color: #000000 !important;
+}
+
+/* Fullscreen mode */
+body.is-fullscreen,
+body.is-maximized {
+    background-color: #000000 !important;
+}
+
+body.is-fullscreen .app-container,
+body.is-maximized .app-container,
+body.is-fullscreen .workspace,
+body.is-maximized .workspace {
+    background-color: #000000 !important;
+}

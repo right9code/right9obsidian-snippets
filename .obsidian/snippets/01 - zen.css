@@ -1,0 +1,169 @@
+/* --- Zen Mode - Hide UI, Show on Hover --- */
+
+/* --- General Principle ---
+   We make elements transparent and restore opacity on hover.
+   A transition is added for a smooth effect.
+--- */
+
+/* --- Global Transition for Opacity --- */
+body {
+  --zen-transition-duration: 0.25s;
+  --zen-transition-timing: ease-in-out;
+}
+
+/* --- Elements to Hide --- */
+.workspace-ribbon,                        /* Left-most icon ribbon */
+.workspace-split.mod-left-split .workspace-tabs, /* Left sidebar (file explorer, search, etc.) headers and content */
+.workspace-split.mod-right-split .workspace-tabs, /* Right sidebar (backlinks, outline, etc.) headers and content */
+.status-bar,                              /* Bottom status bar */
+.view-header,                             /* Header of each pane (title, icons) */
+.cm-gutters,                              /* Editor line numbers, folding markers */
+.workspace-tab-header-container,          /* <<< THIS IS THE MAIN FILE TAB BAR CONTAINER */
+.titlebar                                 /* App Titlebar (if using frameless window) */
+{
+  opacity: 0;
+  transition: opacity var(--zen-transition-duration) var(--zen-transition-timing);
+}
+
+/* --- Keep the space they occupy to avoid layout shifts --- */
+.workspace-ribbon,
+.status-bar,
+.view-header,
+.workspace-tab-header-container {
+  /* Opacity:0 generally preserves layout space.
+     If an element collapses, you might need to set a min-height. */
+}
+
+
+/* --- Show Elements on Hover --- */
+
+/* Ribbon: Hover over the ribbon area itself */
+.workspace-ribbon:hover {
+  opacity: 1;
+}
+
+/* Left Sidebar: Hover over the general left split area */
+.workspace-split.mod-left-split:hover .workspace-tabs {
+  opacity: 1;
+}
+
+/* Right Sidebar: Hover over the general right split area */
+.workspace-split.mod-right-split:hover .workspace-tabs {
+  opacity: 1;
+}
+
+/* Status Bar: Hover over the status bar itself */
+.status-bar:hover {
+  opacity: 1;
+}
+
+/* Pane Header: Hover over the header area of a pane */
+.view-header:hover {
+  opacity: 1;
+}
+
+/* Editor Gutters: Hover over the editor area itself */
+.cm-editor:hover .cm-gutters {
+  opacity: 1;
+}
+
+/* Tab Bar: Hover over the tab bar area itself */
+/* --- MODIFIED RULE FOR TAB BAR --- */
+.workspace-tab-header-container:hover {
+  opacity: 1;
+}
+/* --- END MODIFICATION --- */
+
+
+/* App Titlebar: Hover anywhere on the body (might be too broad for some) */
+/* Or more specifically, if your theme has a specific wrapper for it */
+body:hover .titlebar {
+    opacity: 1;
+}
+/* Alternative for Titlebar: Hover the titlebar area itself
+.titlebar:hover {
+    opacity: 1;
+}
+*/
+
+
+/* --- Scrollbars --- */
+/* Make scrollbar tracks and thumbs transparent by default */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+/* Show scrollbar thumb on hover of its scrollable container */
+.cm-scroller:hover::-webkit-scrollbar-thumb,
+.markdown-preview-view:hover::-webkit-scrollbar-thumb,
+.search-results-pane:hover::-webkit-scrollbar-thumb,
+.community-plugins-list:hover::-webkit-scrollbar-thumb,
+.workspace-leaf-content[data-type="search"]:hover::-webkit-scrollbar-thumb, /* For search results view */
+.workspace-leaf-content[data-type="backlink"]:hover::-webkit-scrollbar-thumb, /* For backlinks view */
+.workspace-leaf-content[data-type="outline"]:hover::-webkit-scrollbar-thumb, /* For outline view */
+.vertical-tab-content-container:hover::-webkit-scrollbar-thumb, /* Generic sidebar content */
+div[class*="setting-item-control"] select:hover::-webkit-scrollbar-thumb,
+textarea:hover::-webkit-scrollbar-thumb
+{
+  background-color: var(--scrollbar-thumb-bg);
+}
+
+/* Optional: Make scrollbar thumb a bit more visible on its own hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-active-thumb-bg, var(--interactive-accent));
+}
+
+
+/* --- Make sure the main content area is NOT affected --- */
+.markdown-source-view,
+.markdown-preview-view,
+.workspace-leaf-content > .view-content /* Ensure main note content is always visible */
+{
+  opacity: 1 !important; /* Ensure content visibility */
+}
+
+
+/* --- Hide elements initially --- */
+.workspace-sidedock-vault-profile,        /* Vault Section */
+.titlebar-button.mod-minimize,            /* Minimize Button */
+.titlebar-button.mod-maximize,            /* Maximise Button */
+.titlebar-button.mod-close                /* Close Button */ {
+  opacity: 0;
+  transition: opacity var(--zen-transition-duration) var(--zen-transition-timing);
+}
+
+/* --- Reveal elements on hover --- */
+.workspace-sidedock-vault-profile:hover,
+.titlebar-button.mod-minimize:hover,
+.titlebar-button.mod-maximize:hover,
+.titlebar-button.mod-close:hover {
+  opacity: 1;
+}
+
+
+.workspace-leaf-resize-handle            /* Margin Line between Left Pane and Body */{
+  opacity: 0;
+  transition: opacity var(--zen-transition-duration) var(--zen-transition-timing);
+}
+.workspace-leaf-resize-handle:hover{
+  opacity: 1;
+}
+
+
+/* --- Uncomment below to hide minimize, maximize, and close buttons on the titlebar --- */
+/* .titlebar-button-container {
+  display: none !important;
+} */
+
+

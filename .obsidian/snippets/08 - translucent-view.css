@@ -1,0 +1,89 @@
+/* ==========================================================================
+   TRANSLUCENT VIEW - HYPRLAND COMPATIBILITY
+   "Glassy look for tiled window managers"
+   ========================================================================== */
+
+body {
+    /* Make the main window background transparent */
+    background-color: transparent !important;
+}
+
+/* Force transparency on main app container */
+.app-container {
+    background-color: transparent !important;
+}
+
+/* Make splits/panes transparent allow wallpaper/windows to show through */
+.workspace-split,
+.workspace-leaf,
+.workspace-leaf-content,
+.view-content,
+.view-header,
+.workspace-tab-header-container,
+.workspace-ribbon,
+.status-bar {
+    background-color: rgba(var(--mono-rgb-0), 0.3) !important;
+    /* 0.3 opacity gives a nice glass tint - adjust as needed */
+    /* using mono-rgb-0 ensures it adapts to light/dark mode roughly */
+}
+
+/* Ensure the markdown editing area is translucent */
+.markdown-source-view,
+.markdown-preview-view {
+    background-color: transparent !important;
+}
+
+/* Scroller adjustments */
+.cm-scroller,
+.markdown-preview-view {
+    background-color: transparent !important;
+}
+
+/* Sidebar transparency adjustments */
+.workspace-split.mod-left-split,
+.workspace-split.mod-right-split {
+    background-color: rgba(var(--mono-rgb-0), 0.2) !important;
+}
+
+/* Popovers/Modals - Usually keep these slightly more opaque for readability */
+.popover,
+.modal {
+    background-color: rgba(var(--mono-rgb-0), 0.8) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(var(--mono-rgb-100), 0.1);
+}
+
+/* Remove opaque backgrounds from typical theme variables if they leak through */
+body {
+    --background-primary: rgba(var(--mono-rgb-0), 0.05);
+    --background-secondary: rgba(var(--mono-rgb-0), 0.1);
+    --background-secondary-alt: rgba(var(--mono-rgb-0), 0.15);
+}
+
+/* Optional: Add a backdrop blur if the compositor supports it */
+/* Note: This often requires specific flag enablement in Obsidian/Electron */
+body {
+    backdrop-filter: blur(5px);
+}
+
+/* ==========================================================================
+   FULLSCREEN OVERRIDES
+   ========================================================================== */
+body.is-fullscreen,
+body.is-maximized {
+    background-color: transparent !important;
+}
+
+body.is-fullscreen .app-container,
+body.is-maximized .app-container,
+body.is-fullscreen .workspace,
+body.is-maximized .workspace {
+    background-color: transparent !important;
+}
+
+/* Ensure nothing covers the transparent background in fullscreen */
+body.is-fullscreen .workspace-split,
+body.is-maximized .workspace-split {
+    background-color: rgba(var(--mono-rgb-0), 0.2) !important;
+}
